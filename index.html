@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Damien Hohn | Artist</title>
+    <meta
+      name="description"
+      content="Official artist page for Damien Hohn featuring biography, career milestones, and upcoming shows."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="https://images.unsplash.com/photo-1546436836-07a91091f160?w=1920&q=80"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://example.com/#damien-hohn",
+            "name": "Damien Hohn",
+            "jobTitle": "Visual Artist",
+            "description": "Contemporary artist exploring memory, texture, and urban rhythm.",
+            "url": "https://example.com",
+            "knowsAbout": ["Contemporary art", "Mixed media", "Exhibitions"]
+          },
+          {
+            "@type": "CreativeWork",
+            "name": "Damien Hohn Official Artist Website",
+            "about": { "@id": "https://example.com/#damien-hohn" },
+            "inLanguage": "en"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header" role="banner">
+      <div class="brand-block" aria-label="Site identity">
+        <p class="eyebrow">Official Site</p>
+        <h1>Damien Hohn</h1>
+      </div>
+
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#career">Career</a></li>
+          <li><a href="#shows">Upcoming Shows</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section id="hero" class="panel hero" aria-labelledby="hero-title">
+        <article>
+          <p class="eyebrow">Visual Artist</p>
+          <h2 id="hero-title">Damien Hohn: Art in Motion</h2>
+          <p>
+            Contemporary work shaped by texture, memory, and urban rhythm.
+            Explore Damien's practice, key milestones, and where to experience
+            the work next.
+          </p>
+          <a class="cta" href="#about" aria-label="Read about Damien Hohn">
+            Explore the Profile
+          </a>
+        </article>
+      </section>
+
+      <section id="about" class="panel about" aria-labelledby="about-title">
+        <article>
+          <p class="eyebrow">About Me</p>
+          <h2 id="about-title">Material, memory, and movement</h2>
+          <p>
+            Damien Hohn is a multidisciplinary artist whose practice combines
+            painting, collage, and found urban textures. His work examines how
+            places shape personal memory and collective
+            identity.
+          </p>
+          <p>
+            In each series, Damien builds layered surfaces that invite viewers to move closer,
+            discovering subtle marks and hidden narratives over time.
+          </p>
+
+          <figure class="about-figure">
+            <img
+              src="https://images.unsplash.com/photo-1515405295579-ba7b45403062?auto=format&fit=crop&w=1200&q=80"
+              alt="Close-up of a painted urban wall texture used as artistic inspiration"
+            />
+            <figcaption>Urban textures often inform Damien's visual language.</figcaption>
+          </figure>
+        </article>
+      </section>
+
+      <section id="career" class="panel career" aria-labelledby="career-title">
+        <article>
+          <p class="eyebrow">Career</p>
+          <h2 id="career-title">Exhibitions and milestones</h2>
+          <ul class="timeline" aria-label="Career timeline">
+            <li>
+              <span class="year">2017</span>
+              <p>First solo exhibition, Fragments of Motion.</p>
+            </li>
+            <li>
+              <span class="year">2020</span>
+              <p>Residency in Lisbon focused on mixed-media experimentation.</p>
+            </li>
+            <li>
+              <span class="year">2023</span>
+              <p>Featured in Emerging European Voices in Contemporary Art.</p>
+            </li>
+            <li>
+              <span class="year">2025</span>
+              <p>Commissioned large-scale installation for public cultural center.</p>
+            </li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="shows" class="panel shows" aria-labelledby="shows-title">
+        <article>
+          <p class="eyebrow">Upcoming Shows</p>
+          <h2 id="shows-title">Where to see the work next</h2>
+          <ul class="show-list" aria-label="Upcoming exhibitions">
+            <li>
+              <h3>Echoes in Transit</h3>
+              <p>June 12-30, 2026 | Atelier North, Berlin</p>
+            </li>
+            <li>
+              <h3>Surface and Silence</h3>
+              <p>August 5-20, 2026 | Galerie Meridian, Amsterdam</p>
+            </li>
+            <li>
+              <h3>Night Signal</h3>
+              <p>October 10-November 2, 2026 | Riverlight Arts, Copenhagen</p>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer" role="contentinfo">
+      <p>Damien Hohn | Contact: studio@damienhohn.art</p>
+    </footer>
+  </body>
+</html>
