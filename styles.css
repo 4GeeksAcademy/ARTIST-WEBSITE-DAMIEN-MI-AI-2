@@ -1,8 +1,11 @@
 :root {
   --bg-base: #0a0a1a;
+  --bg-deep: #070712;
   --text-strong: #f0c040;
+  --text-main: #dde5f4;
   --text-soft: #b0b8c8;
   --line: rgba(240, 192, 64, 0.18);
+  --panel-glass: rgba(9, 14, 30, 0.46);
   --focus: #f0c040;
   --max-content-width: 980px;
   --header-height: 5rem;
@@ -26,9 +29,9 @@ html {
 
 body {
   min-height: 100vh;
-  font-family: "Georgia", serif;
+  font-family: "Space Grotesk", "Segoe UI", Tahoma, sans-serif;
   color: #ffffff;
-  background-color: #0a0a1a;
+  background-color: var(--bg-deep);
   background-image: url("https://images.unsplash.com/photo-1546436836-07a91091f160?auto=format&fit=crop&w=1600&q=65");
   background-size: cover;
   background-position: center;
@@ -108,6 +111,8 @@ body > * {
 h1,
 h2,
 h3 {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  letter-spacing: 0.015em;
   color: #f0c040;
   text-shadow: 0 0 20px rgba(240, 192, 64, 0.4);
 }
@@ -115,12 +120,16 @@ h3 {
 p,
 li,
 a {
-  color: #d0d8e8;
+  color: var(--text-main);
 }
 
 a:hover {
   color: #f0c040;
   text-shadow: 0 0 10px rgba(240, 192, 64, 0.6);
+}
+
+p {
+  text-wrap: pretty;
 }
 
 .eyebrow {
@@ -153,12 +162,15 @@ a:hover {
   font-weight: 700;
   border: 1px solid transparent;
   border-radius: 999px;
-  transition: background-color 160ms ease, transform 160ms ease;
+  transition: background-color 180ms ease, transform 180ms ease,
+    border-color 180ms ease, color 180ms ease;
 }
 
 .site-nav a:hover,
 .site-nav a:focus-visible {
   background: rgba(240, 192, 64, 0.14);
+  border-color: rgba(240, 192, 64, 0.28);
+  color: #f7df9a;
   transform: translateY(-1px);
   outline: none;
 }
@@ -175,9 +187,12 @@ main {
   align-items: center;
   justify-content: center;
   padding: clamp(1.25rem, 4vw, 3.5rem);
-  background: rgba(10, 14, 28, 0.16);
+  background:
+    linear-gradient(160deg, rgba(20, 26, 46, 0.42), rgba(10, 14, 28, 0.18)),
+    var(--panel-glass);
   backdrop-filter: saturate(120%);
   border-radius: 1.2rem;
+  border: 1px solid rgba(240, 192, 64, 0.12);
   margin-bottom: 2.5rem;
   box-shadow: 0 2px 32px 0 rgba(0, 0, 0, 0.25);
   scroll-snap-align: start;
@@ -240,16 +255,19 @@ main {
   background: rgba(10, 14, 28, 0.56);
   border-radius: 0.7rem;
   overflow: hidden;
+  border: 1px solid rgba(240, 192, 64, 0.12);
   box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   align-items: center;
-  transition: transform 0.18s;
+  transition: transform 0.22s ease, box-shadow 0.22s ease,
+    border-color 0.22s ease;
 }
 
 .gallery-item:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 32px 0 rgba(240, 192, 64, 0.18);
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(240, 192, 64, 0.34);
+  box-shadow: 0 10px 32px 0 rgba(240, 192, 64, 0.2);
 }
 
 .gallery-item img {
@@ -273,14 +291,20 @@ main {
   margin-top: 1.4rem;
   padding: 0.7rem 1.1rem;
   border: 1px solid var(--text-strong);
+  border-radius: 999px;
   color: #d0d8e8;
+  background: rgba(240, 192, 64, 0.06);
   text-decoration: none;
   font-weight: 700;
+  transition: transform 180ms ease, background-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .cta:hover,
 .cta:focus-visible {
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(240, 192, 64, 0.2);
+  box-shadow: 0 8px 24px rgba(240, 192, 64, 0.22);
+  transform: translateY(-1px);
   outline: none;
 }
 
@@ -317,7 +341,12 @@ main {
 .show-list li {
   padding: 1rem;
   border-left: 3px solid #f0c040;
-  background: rgba(12, 18, 34, 0.5);
+  background: linear-gradient(
+    110deg,
+    rgba(20, 28, 48, 0.68),
+    rgba(12, 18, 34, 0.42)
+  );
+  border-radius: 0.2rem;
 }
 
 .year {
@@ -337,7 +366,11 @@ main {
 .site-footer {
   padding: 1rem clamp(1rem, 3vw, 2.5rem);
   border-top: 1px solid var(--line);
-  background: rgba(10, 10, 26, 0.48);
+  background: linear-gradient(
+    180deg,
+    rgba(10, 10, 26, 0.58),
+    rgba(10, 10, 26, 0.74)
+  );
   backdrop-filter: blur(6px);
   color: #b0b8c8;
 }
@@ -376,10 +409,23 @@ button:focus-visible {
     max-width: var(--max-content-width);
     margin: 0 auto;
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
     padding: 0.9rem clamp(1rem, 3vw, 2.5rem);
-    gap: 1rem;
+    gap: 0.65rem;
+  }
+
+  .brand-block {
+    align-items: center;
+    text-align: center;
+  }
+
+  .site-nav {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
   }
 
   .brand-block h1 {
@@ -388,13 +434,19 @@ button:focus-visible {
   }
 
   .site-nav ul {
-    align-items: flex-start;
-    gap: 1.2rem;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    width: max-content;
+    min-width: 100%;
+    gap: 0.55rem;
+    padding-bottom: 0.1rem;
   }
 
   .site-nav a {
-    padding: 0.5rem 1.1rem;
-    font-size: 1rem;
+    white-space: nowrap;
+    padding: 0.48rem 0.9rem;
+    font-size: 0.92rem;
   }
 
   .site-nav a:hover,
@@ -407,12 +459,33 @@ button:focus-visible {
   }
 
   main {
-    margin-top: var(--header-height);
+    margin-top: calc(var(--header-height) + 2.6rem);
   }
 
   .panel {
-    min-height: 100vh;
+    min-height: 100svh;
     padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-content {
+    padding-top: 0.75rem;
+    padding-bottom: 0.55rem;
+    gap: 0.5rem;
+  }
+
+  .site-nav ul {
+    gap: 0.45rem;
+  }
+
+  .site-nav a {
+    padding: 0.42rem 0.75rem;
+    font-size: 0.86rem;
+  }
+
+  main {
+    margin-top: calc(var(--header-height) + 2.3rem);
   }
 }
 
@@ -446,4 +519,40 @@ button:focus-visible {
   color: var(--text-soft);
   font-size: 0.9rem;
   margin-top: 0.5rem;
+}
+
+/* Subtle entrance animation keeps the first load feeling more intentional. */
+@media (prefers-reduced-motion: no-preference) {
+  .panel {
+    animation: panel-rise 500ms ease both;
+  }
+
+  .panel:nth-of-type(2) {
+    animation-delay: 60ms;
+  }
+
+  .panel:nth-of-type(3) {
+    animation-delay: 110ms;
+  }
+
+  .panel:nth-of-type(4) {
+    animation-delay: 150ms;
+  }
+
+  .panel:nth-of-type(5),
+  .panel:nth-of-type(6) {
+    animation-delay: 190ms;
+  }
+}
+
+@keyframes panel-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
